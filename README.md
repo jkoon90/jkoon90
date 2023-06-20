@@ -20,9 +20,5 @@ Here are some ideas to get you started:
 ## Hi this is Jkoon👋
 I’m Front-end Developer working in 🇰🇷 Seoul, south korea. <br /><br />
 
-## My tech stack 📚
-
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=jkoon90&show_icons=true&theme=onedark)](https://github.com/anuraghazra/github-readme-stats)
-
 
  
