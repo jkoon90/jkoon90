@@ -18,7 +18,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 ## Hi this is Jkoon👋
-I’m Front-end Developer working in 🇰🇷 Seoul, South Korea. <br /><br />
+I’m Front-end Developer working in 🇰🇷 Seoul, South Korea. <br />
 
 - Typescript
 - Next.js
