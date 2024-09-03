@@ -2,7 +2,6 @@
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=250&text=Junkyung&fontAlign=80&fontAlignY=40&color=gradient)
 
-
 <!--
 **hagene1757/hagene1757** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
@@ -25,5 +24,13 @@ I’m Front-end Developer working in 🇰🇷 Seoul, South Korea. <br />
 - React.js
 - Redux (Saga, Thunk)
 - Styled-components
+
+<a href="https://github.com/devxb/gitanimals">
+  <img
+    src="https://render.gitanimals.org/lines/jkoon90?pet-id=618668465644484234"
+    width="600"
+    height="120"
+  />
+</a>
 
  
