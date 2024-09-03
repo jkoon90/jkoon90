@@ -27,10 +27,11 @@ I’m Front-end Developer working in 🇰🇷 Seoul, South Korea. <br />
 
 <a href="https://github.com/devxb/gitanimals">
   <img
-    src="https://render.gitanimals.org/lines/jkoon90?pet-id=618668465644484234"
+    src="https://render.gitanimals.org/lines/jkoon90?pet-id=618669817913259770"
     width="600"
     height="120"
   />
 </a>
+  
 
  
