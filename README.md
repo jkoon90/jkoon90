@@ -2,36 +2,19 @@
 
 ![header](https://capsule-render.vercel.app/api?type=waving&height=250&text=Junkyung&fontAlign=80&fontAlignY=40&color=gradient)
 
-<!--
-**hagene1757/hagene1757** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Hi, I'm jkoon90 👋
 
-Here are some ideas to get you started:
+I'm a passionate **Frontend Developer** who loves building interactive and accessible user interfaces.  
+I specialize in **TypeScript** and **JavaScript**, and enjoy turning complex problems into elegant, maintainable code.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-## Hi this is Jkoon👋
-I’m Front-end Developer working in 🇰🇷 Seoul, South Korea. <br />
+## 🚀 Tech Stack
+- **Languages**: TypeScript, JavaScript
+- **Frontend**: React, Next.js, Redux(thunk, saga), React Query, Tailwind CSS, Styled-components
+- **Tools**: Git, VS Code
 
-- Typescript
-- Next.js
-- React.js
-- Redux (Saga, Thunk)
-- Styled-components
+## 🌟 What I Do
+- Craft performant and beautiful web applications
+- Focus on clean, scalable code and intuitive user experiences
+- Always learning and exploring new frontend technologies
 
-<a href="https://github.com/devxb/gitanimals">
-  <img
-    src="https://render.gitanimals.org/lines/jkoon90?pet-id=618669817913259770"
-    width="600"
-    height="120"
-  />
-</a>
-  
-
- 
+Thanks for stopping by! Feel free to check out my repositories or connect with me above.
