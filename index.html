@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junkyung | Frontend Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #6c63ff;
+      --primary-dark: #5a52d5;
+      --bg: #0f0f1a;
+      --bg-card: #1a1a2e;
+      --text: #e0e0e0;
+      --text-muted: #8888a0;
+      --accent: #00d4aa;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 15, 26, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: radial-gradient(ellipse at 50% 0%, rgba(108, 99, 255, 0.15) 0%, transparent 60%);
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content .tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 550px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      margin-left: 1rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    section .section-sub {
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .info-list li strong {
+      color: var(--primary);
+      display: inline-block;
+      width: 80px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .skill-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(108, 99, 255, 0.15);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Experience */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.35rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+    }
+
+    .timeline-item h3 {
+      color: #fff;
+      font-size: 1.15rem;
+    }
+
+    .timeline-item .period {
+      color: var(--accent);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .project-card .project-img {
+      height: 180px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .project-card .project-body {
+      padding: 1.5rem;
+    }
+
+    .project-card h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-card .project-tag {
+      background: rgba(0, 212, 170, 0.1);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* Contact */
+    .contact-content {
+      text-align: center;
+    }
+
+    .contact-content p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--bg-card);
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      .hero .btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Animate on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">JK.</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Junkyung</span></h1>
+      <p class="subtitle">Frontend Developer</p>
+      <p class="tagline">
+        Interactive하고 접근성 높은 사용자 인터페이스를 만드는 것을 좋아하는 프론트엔드 개발자입니다.
+        복잡한 문제를 우아하고 유지보수하기 쉬운 코드로 풀어냅니다.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">Projects</a>
+        <a href="https://github.com/jkoon90" class="btn btn-outline" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="fade-in">About Me</h2>
+    <p class="section-sub fade-in">개발자 소개</p>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>
+          안녕하세요! 저는 프론트엔드 개발자 Junkyung입니다.
+          TypeScript와 JavaScript를 기반으로 React, Next.js 생태계에서
+          퍼포먼스 높고 아름다운 웹 애플리케이션을 만들고 있습니다.
+        </p>
+        <p>
+          깔끔하고 확장 가능한 코드, 직관적인 사용자 경험에 집중하며,
+          항상 새로운 프론트엔드 기술을 탐구하고 배우고 있습니다.
+        </p>
+      </div>
+      <ul class="info-list">
+        <li><strong>Name</strong> Junkyung</li>
+        <li><strong>Role</strong> Frontend Developer</li>
+        <li><strong>GitHub</strong> jkoon90</li>
+        <li><strong>Focus</strong> React, TypeScript</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="fade-in">Skills</h2>
+    <p class="section-sub fade-in">기술 스택</p>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Redux</span>
+          <span class="skill-tag">React Query</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Styled-components</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <h3>State Management</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Redux Thunk</span>
+          <span class="skill-tag">Redux Saga</span>
+          <span class="skill-tag">React Query</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <h3>Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="fade-in">Experience</h2>
+    <p class="section-sub fade-in">경력 사항</p>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <h3>Frontend Developer</h3>
+        <div class="period">현재</div>
+        <p>
+          React, TypeScript 기반의 웹 애플리케이션 개발.
+          퍼포먼스 최적화 및 사용자 경험 개선에 집중.
+        </p>
+      </div>
+      <div class="timeline-item">
+        <h3>Web Developer</h3>
+        <div class="period">이전 경력</div>
+        <p>
+          JavaScript를 활용한 인터랙티브 웹 서비스 구축.
+          다양한 프론트엔드 프레임워크 경험 축적.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="fade-in">Projects</h2>
+    <p class="section-sub fade-in">프로젝트</p>
+    <div class="projects-grid">
+      <div class="project-card fade-in">
+        <div class="project-img">01</div>
+        <div class="project-body">
+          <h3>Project One</h3>
+          <p>React와 TypeScript를 활용한 웹 애플리케이션 프로젝트입니다. 내용을 자유롭게 수정해 주세요.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Next.js</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in">
+        <div class="project-img" style="background: linear-gradient(135deg, #00d4aa, #6c63ff);">02</div>
+        <div class="project-body">
+          <h3>Project Two</h3>
+          <p>상태 관리와 API 연동을 중심으로 한 프로젝트입니다. 내용을 자유롭게 수정해 주세요.</p>
+          <div class="project-tags">
+            <span class="project-tag">Redux</span>
+            <span class="project-tag">React Query</span>
+            <span class="project-tag">REST API</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in">
+        <div class="project-img" style="background: linear-gradient(135deg, #ff6b6b, #6c63ff);">03</div>
+        <div class="project-body">
+          <h3>Project Three</h3>
+          <p>UI/UX에 집중한 반응형 웹 프로젝트입니다. 내용을 자유롭게 수정해 주세요.</p>
+          <div class="project-tags">
+            <span class="project-tag">Tailwind CSS</span>
+            <span class="project-tag">Styled-components</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="fade-in">Contact</h2>
+    <p class="section-sub fade-in">연락처</p>
+    <div class="contact-content fade-in">
+      <p>프로젝트 협업이나 기회에 대해 이야기 나누고 싶다면 편하게 연락 주세요!</p>
+      <div class="contact-links">
+        <a href="https://github.com/jkoon90" target="_blank" class="contact-link">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Junkyung. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll animation -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
